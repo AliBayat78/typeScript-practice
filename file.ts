@@ -1,16 +1,16 @@
-class Person {
-  name: string
-  family: string
-  age: number
 
-  constructor() {
-    this.name = 'ali'
-    this.family = 'bayat'
-    this.age = 234
-  }
+let firstName: string = 'Ali'
+let lastName: string = 'Bayat'
+let age: number = 23
+let isMale: boolean = true
+
+function totalLength(x: string, y: string) {
+  let total = x.length + y.length;
+  return total
 }
-{
-  let cat = 'meow'
-  let dog = 'haphap'
-  document.write(cat + dog)
+
+var animal = {
+  name: "dog"
 }
+
+totalLength('k', animal.name)
