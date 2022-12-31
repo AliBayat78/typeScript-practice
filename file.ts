@@ -3,6 +3,8 @@
 // let age: number = 23
 // let isMale: boolean = true
 
+import { StringLiteral } from 'typescript'
+
 // function totalLength(x: (string | any[]), y: (string | any[])) {
 //   let total = x.length + y.length;
 //   if (x instanceof Array) {
@@ -19,13 +21,32 @@
 // }
 
 // totalLength([123], "mamad")
-function add(a: string, b: string): string
+// function add(a: string, b: string): string
 
-function add(a: number, b: number): number
-function add(a: any, b: any): any {
-  return a + b
+// function add(a: number, b: number): number
+// function add(a: any, b: any): any {
+//   return a + b
+// }
+
+// let result = add('s', 'ya')
+// let result2 = add(2, 5)
+// console.log(result, result2)
+
+interface Person {
+  name: string
+  family: string
+  age: number
+  email?: string
 }
 
-let result = add('s', 'ya')
-let result2 = add(2, 5)
-console.log(result, result2)
+function showPerson(person: Person) {
+  document.write(person.name + ' s')
+}
+
+let ali: Person = {
+  name: 'ali',
+  family: 'bayat',
+  age: 23,
+}
+
+showPerson(ali)

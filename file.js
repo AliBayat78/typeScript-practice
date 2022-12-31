@@ -3,9 +3,13 @@
 // let lastName: string = 'Bayat'
 // let age: number = 23
 // let isMale: boolean = true
-function add(a, b) {
-    return a + b;
+Object.defineProperty(exports, "__esModule", { value: true });
+function showPerson(person) {
+    document.write(person.name + ' s');
 }
-let result = add('s', 'ya');
-let result2 = add(2, 5);
-console.log(result, result2);
+let ali = {
+    name: 'ali',
+    family: 'bayat',
+    age: 23,
+};
+showPerson(ali);
