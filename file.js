@@ -55,11 +55,26 @@
 // console.log(Days.shanbe)
 // console.log(Days.seshanbe)
 // console.log(Colors.Yellow)
-function Login(login) {
-    console.log(login.username + ' ' + login.password);
+// function Login(login: { username: string; password: string }) {
+//   console.log(login.username + ' ' + login.password)
+// }
+// let information = {
+//   username: 'Ali',
+//   password: 'Bayat',
+// }
+// Login(information)
+class Person {
+    constructor(name, family) {
+        this.name = name;
+        this.family = family;
+    }
+    fullName() {
+        return this.name + ' ' + this.family;
+    }
 }
-let information = {
-    username: 'Ali',
-    password: 'Bayat',
-};
-Login(information);
+Person.personId = 1;
+let newPerson = new Person('Ali', 'Bayat');
+newPerson.name = 'mehdi';
+console.log(newPerson.fullName());
+console.log(newPerson.name);
+console.log(Person.personId);
