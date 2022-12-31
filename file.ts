@@ -3,8 +3,6 @@
 // let age: number = 23
 // let isMale: boolean = true
 
-import { StringLiteral } from 'typescript'
-
 // function totalLength(x: (string | any[]), y: (string | any[])) {
 //   let total = x.length + y.length;
 //   if (x instanceof Array) {
@@ -37,8 +35,13 @@ interface Person {
   family: string
   age: number
   email?: string
+  color: Colors
 }
 
+enum Colors {
+  Red = '#2134',
+  Yellow = '#sd12312',
+}
 function showPerson(person: Person) {
   document.write(person.name + ' s')
 }
@@ -47,6 +50,18 @@ let ali: Person = {
   name: 'ali',
   family: 'bayat',
   age: 23,
+  color: Colors.Red,
 }
 
 showPerson(ali)
+
+enum Days {
+  shanbe = 2,
+  yekshanbe = 22,
+  doshanbe = 0,
+  seshanbe = 'salam',
+}
+
+console.log(Days.shanbe)
+console.log(Days.seshanbe)
+console.log(Colors.Yellow)
