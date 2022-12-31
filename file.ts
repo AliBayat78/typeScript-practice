@@ -30,38 +30,49 @@
 // let result2 = add(2, 5)
 // console.log(result, result2)
 
-interface Person {
-  name: string
-  family: string
-  age: number
-  email?: string
-  color: Colors
+// interface Person {
+//   name: string
+//   family: string
+//   age: number
+//   email?: string
+//   color: Colors
+// }
+
+// enum Colors {
+//   Red = '#2134',
+//   Yellow = '#sd12312',
+// }
+// function showPerson(person: Person) {
+//   document.write(person.name + ' s')
+// }
+
+// let ali: Person = {
+//   name: 'ali',
+//   family: 'bayat',
+//   age: 23,
+//   color: Colors.Red,
+// }
+
+// showPerson(ali)
+
+// enum Days {
+//   shanbe = 2,
+//   yekshanbe = 22,
+//   doshanbe = 0,
+//   seshanbe = 'salam',
+// }
+
+// console.log(Days.shanbe)
+// console.log(Days.seshanbe)
+// console.log(Colors.Yellow)
+
+function Login(login: { username: string; password: string }) {
+  console.log(login.username + ' ' + login.password)
 }
 
-enum Colors {
-  Red = '#2134',
-  Yellow = '#sd12312',
-}
-function showPerson(person: Person) {
-  document.write(person.name + ' s')
+let information = {
+  username: 'Ali',
+  password: 'Bayat',
 }
 
-let ali: Person = {
-  name: 'ali',
-  family: 'bayat',
-  age: 23,
-  color: Colors.Red,
-}
-
-showPerson(ali)
-
-enum Days {
-  shanbe = 2,
-  yekshanbe = 22,
-  doshanbe = 0,
-  seshanbe = 'salam',
-}
-
-console.log(Days.shanbe)
-console.log(Days.seshanbe)
-console.log(Colors.Yellow)
+Login(information)
