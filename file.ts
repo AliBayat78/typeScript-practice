@@ -10,12 +10,11 @@ enum TodoState {
   Delete,
 }
 
-class TodoStateChanger {
+abstract class TodoStateChanger {
   constructor(private newState: TodoState) {}
 
-  canChangeState(todo: Todo): boolean {
-    return !!todo
-  }
+  abstract canChangeState(todo: Todo): boolean
+
   changeState(todo: Todo): Todo {
     if (this.canChangeState(todo)) {
       todo.state = this.newState
@@ -24,8 +23,13 @@ class TodoStateChanger {
   }
 }
 
+
 class CompleteTodoStateChanger extends TodoStateChanger {
   constructor() {
     super(TodoState.Complete)
+  }
+  canChangeState(todo: Todo): boolean {
+    return !!todo && (todo.state==TodoState.Active || todo.state == TodoState.Delete)
+  }
   }
 }
