@@ -10,6 +10,32 @@ enum TodoState {
   Delete,
 }
 
+class TodoService {
+  private static lastId: number = 0
+
+  constructor(private todos: Todo[]) {}
+
+  private get nextId() {
+    return TodoService.getNextId()
+  }
+
+  private set nextId(nextId) {
+    TodoService.lastId = nextId
+  }
+
+  static getNextId() {
+    return TodoService.lastId +=1
+  } 
+
+  public add(todo: Todo) {
+    let newId = this.nextId
+  }
+
+  public getAll() {
+    return this.todos
+  }
+}
+
 abstract class TodoStateChanger {
   constructor(private newState: TodoState) {}
 
