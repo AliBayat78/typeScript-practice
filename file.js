@@ -6,28 +6,17 @@ var TodoState;
     TodoState[TodoState["Complete"] = 2] = "Complete";
     TodoState[TodoState["Delete"] = 3] = "Delete";
 })(TodoState || (TodoState = {}));
-let todo = {
-    name: 'Bank',
-    state: TodoState.Active,
-};
-console.log(todo.state);
-class SmartTodo {
-    constructor(name, _state) {
-        this.name = name;
-        this._state = _state;
+class TodoStateChanger {
+    constructor(newState) {
+        this.newState = newState;
     }
-    get state() {
-        return this._state;
+    canChangeState(todo) {
+        return !!todo;
     }
-    set state(newState) {
-        if (newState == TodoState.Complete) {
-            var canBeComplete = this.state == TodoState.Active || this.state == TodoState.Delete;
-            if (!canBeComplete) {
-                throw 'Todo must be active or Deleted in ...';
-            }
+    changeState(todo) {
+        if (this.canChangeState(todo)) {
+            todo.state = this.newState;
         }
-        this._state = newState;
+        return todo;
     }
 }
-let result = new SmartTodo('Bank', TodoState.New);
-console.log(result);

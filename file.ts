@@ -1,6 +1,6 @@
 interface Todo {
   name: string
-  status: TodoState
+  state: TodoState
 }
 
 enum TodoState {
@@ -10,37 +10,22 @@ enum TodoState {
   Delete,
 }
 
-let todo = {
-  name: 'Bank',
-  state: TodoState.Active,
-}
+class TodoStateChanger {
+  constructor(private newState: TodoState) {}
 
-console.log(todo.state)
-
-class SmartTodo {
-  name: string
-  _state: TodoState
-
-  constructor(name: string, _state: TodoState) {
-    this.name = name
-    this._state = _state
+  canChangeState(todo: Todo): boolean {
+    return !!todo
   }
-
-  get state() {
-    return this._state
-  }
-
-  set state(newState) {
-    if (newState == TodoState.Complete) {
-      var canBeComplete = this.state == TodoState.Active || this.state == TodoState.Delete
-      if (!canBeComplete) {
-        throw 'Todo must be active or Deleted in ...'
-      }
+  changeState(todo: Todo): Todo {
+    if (this.canChangeState(todo)) {
+      todo.state = this.newState
     }
-    this._state = newState
+    return todo
   }
 }
 
-let result = new SmartTodo('Bank', TodoState.New)
-
-console.log(result)
+class CompleteTodoStateChanger extends TodoStateChanger {
+  constructor() {
+    super(TodoState.Complete)
+  }
+}
