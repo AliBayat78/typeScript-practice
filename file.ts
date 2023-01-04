@@ -23,13 +23,11 @@ abstract class TodoStateChanger {
   }
 }
 
-
 class CompleteTodoStateChanger extends TodoStateChanger {
   constructor() {
     super(TodoState.Complete)
   }
   canChangeState(todo: Todo): boolean {
-    return !!todo && (todo.state==TodoState.Active || todo.state == TodoState.Delete)
-  }
+    return !!todo && (todo.state == TodoState.Active || todo.state == TodoState.Delete)
   }
 }
